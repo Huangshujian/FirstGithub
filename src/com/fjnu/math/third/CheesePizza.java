@@ -3,7 +3,7 @@ package com.fjnu.math.third;
 public class CheesePizza extends Pizza{
 	public void prepare(){
 		System.out.println("准备cheerse披萨的材料");
-	} 
+	}  
 	public void bake(){
 		System.out.println("烘焙cheerse披萨");
 	}

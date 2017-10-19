@@ -2,7 +2,7 @@ package com.fjnu.math.third;
 
 public class SimplePizzaFactory {
 	public Pizza createPizza(String taste){//披萨工厂生产披萨
-		if(taste==null){
+		if(taste==null){ 
 			System.out.println("输入错误，无法生产");
 			return null;
 		} 

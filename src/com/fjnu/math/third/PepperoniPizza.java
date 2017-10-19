@@ -6,7 +6,7 @@ public class PepperoniPizza extends Pizza{
 	}
 	public void bake(){
 		System.out.println("ºæ±ºÀ±Ïã³¦ÅûÈø");
-	} 
+	}  
 	public void cut(){
 		System.out.println("·Ö¸îÀ±Ïã³¦ÅûÈø");
 	}
