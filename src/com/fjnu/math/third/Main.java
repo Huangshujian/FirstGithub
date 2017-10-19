@@ -6,5 +6,5 @@ public class Main {
 		PizzaStore Store=new PizzaStore(Factory);
 		Store.orderPizza("cheersePizza");
 		//输入可为：cheersePizza、pepperoniPizza、clamPizza;三种类别
-	}
+	} 
 }

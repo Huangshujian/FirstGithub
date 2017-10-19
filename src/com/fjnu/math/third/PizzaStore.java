@@ -3,7 +3,7 @@ package com.fjnu.math.third;
 public class PizzaStore {  			//接收披萨订单生产披萨
 	
 	SimplePizzaFactory Factory;
-	/**
+	/** 
 	 * 披萨商店接收订单函数
 	 * @param taste
 	 * @return

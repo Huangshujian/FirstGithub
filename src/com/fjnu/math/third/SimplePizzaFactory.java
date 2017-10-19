@@ -5,7 +5,7 @@ public class SimplePizzaFactory {
 		if(taste==null){
 			System.out.println("输入错误，无法生产");
 			return null;
-		}
+		} 
 		else if(taste.equalsIgnoreCase("cheerse")){
 			System.out.println("生产cheerse披萨");
 			return new CheesePizza();
