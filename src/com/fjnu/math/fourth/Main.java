@@ -1,6 +1,6 @@
 package com.fjnu.math.fourth;
 import java.util.Scanner;
-/**
+/** 
  * @author Ê÷¼ó°¡
  */
 public class Main {

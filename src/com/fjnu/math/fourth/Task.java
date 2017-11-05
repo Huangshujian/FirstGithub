@@ -19,9 +19,9 @@ public class Task {
 		System.out.println(TaskId+"      "+StartingTime+"      "+ServiceTime+"    "+"   "+FinishingTime+"       "
 				+TurnAroundTime+"         "+WeightTurnAround);
 	}
-	/**
+	/** 
 	 * 构造函数 初始化成员变量
-	 */
+	 */ 
 	Task() {
 		flag=1;
 		TaskId = 0;
