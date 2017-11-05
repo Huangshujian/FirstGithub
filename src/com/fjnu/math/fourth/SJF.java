@@ -25,7 +25,7 @@ public class SJF {
 	 *        2.读取文件中的时间数据并赋值到TimeMessage[]中
 	 */       
 	SJF() {
-		task = new Task(); 
+		task = new Task();  
 		WaitList = new LinkedList<Task>();
 		list = new ArrayList<Task>();
 		DealList = new LinkedList<Task>();

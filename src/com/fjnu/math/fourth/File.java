@@ -77,7 +77,7 @@ public class File {
 	
 	/**
 	 * 读取文件函数
-	 */ 
+	 */  
 	public void ReadFile() {
 		int k=0;
 		try {

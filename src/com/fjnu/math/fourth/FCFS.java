@@ -14,7 +14,7 @@ public class FCFS {
 	File file;
 	int CurrentTime;                        //当前时间
 	private int TimeMessage[][];       		//接收获取的任务时间
-	 
+	  
 	/**
 	 * 构造函数  1.初始化成员变量  
 	 *        2.读取文件中的时间数据并赋值到TimeMessage[]中
