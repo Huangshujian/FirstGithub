@@ -28,7 +28,7 @@ public class Years {
 
 
 
-atx-style:
+
 ## 2.百分制成绩转化为等级成绩
 实现方法ToGradeScore，将百分制成绩转化为等级成绩。要求对一组数据，实现批量转化。
 等级与百分制对照
@@ -93,7 +93,7 @@ public class Translation {
 不合格: 50 59 23 
 
 
-atx-style:
+
 ## 3.打印图案
 利用for循环编写一个程序，将如下图案分别打印输
 出。 
@@ -144,7 +144,6 @@ atx-style:
   </pre></code>    
 
 
-  atx-style:
 ## 4.水仙花数
 编写程序找出所有的水仙花数；水仙花数是三位数，它的各位数字的立方和等于这个三位数本身。
  <pre><code>
@@ -243,11 +242,11 @@ public class Main {
 }
   </pre></code>   
  实验结果：   
-true,false
-正在向锅炉中添加巧克力和牛奶混合物
-false,false
-正在将锅炉煮沸
-false,true
-正在排出煮沸的巧克力和牛奶混合物
-true,false
+true,false<br>
+正在向锅炉中添加巧克力和牛奶混合物<br>
+false,false<br>
+正在将锅炉煮沸<br>
+false,true<br>
+正在排出煮沸的巧克力和牛奶混合物<br>
+true,false<br>
   </pre></code>  
