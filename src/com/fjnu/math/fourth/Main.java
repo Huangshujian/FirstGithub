@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-	//	int num=0;
+		int num=0;
 		Scanner in = new Scanner(System.in);
 		System.out.println("-----------算法选择------------------");
 		System.out.println("1.SJF短作业优先算法(一个处理器)");
@@ -16,14 +16,14 @@ public class Main {
 		System.out.println("5.服务时间抢占算法");
 		System.out.println("6.重新生成数据文件");
 		System.out.println("7.读取数据文件");
-		//System.out.print("Please Enter You Choose : ");
-		//num = in.nextInt();
-		//SJF Sjf = new SJF();
+		System.out.print("Please Enter You Choose : ");
+		num = in.nextInt();
+		SJF Sjf = new SJF();
 		Snach snach = new Snach();
-		//FCFS FcFs = new FCFS();
-		//File file = new File("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\1.txt");
-		snach.SnachM();
-		/*if(num==1) {
+		FCFS FcFs = new FCFS();
+		Files file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\1.txt");
+		//snach.SnachM();
+		if(num==1) {
 			System.out.println("--任务输出信息先后根据完成时间--");
 			Sjf.SjfFrist();
 		}
@@ -56,7 +56,7 @@ public class Main {
 			}
 		}
 		else
-			System.out.println("Error!!");*/
+			System.out.println("Error!!");
 		in.close();
 		
 	}
