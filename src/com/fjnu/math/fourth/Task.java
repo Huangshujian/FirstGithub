@@ -54,7 +54,12 @@ public class Task {
 	public int GetDnyServTime() {
 		return DnyServTime;
 	}
-	
+	public void SetStartTime(int Time) {
+		StartingTime = Time;
+	}
+	public int GetStartTime() {
+		return StartingTime;
+	}
 	/**
 	 * 获取任务的到达时间
 	 * @return ArriveTime

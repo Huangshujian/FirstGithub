@@ -15,7 +15,7 @@ public class SJF {
 	List<Task> list;
 	List<Task> WaitList;                    //等待对列
 	List<Task> DealList;                    //处理队列 
-	File file;
+	Files file;
 	int CurrentTime;                        //当前时间
 	private int TimeMessage[][];       		//接收获取的任务时间信息
 	private int SortTimeMessage[][];        //排序后的任务信息
@@ -30,7 +30,7 @@ public class SJF {
 		list = new ArrayList<Task>();
 		DealList = new LinkedList<Task>();
 		CurrentTime = 1;
-		file = new File("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\1.txt");
+		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\1.txt");
 		TimeMessage = new int [100][3];
 		SortTimeMessage = new int [100][3];
 		file.ReadFile();  				   //读取文件

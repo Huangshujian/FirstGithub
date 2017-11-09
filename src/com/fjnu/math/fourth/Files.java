@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  * @author 树俭啊
  */
-public class File {
+public class Files {
 	
 	FileWriter writer;
 	FileReader reader;
@@ -23,7 +23,7 @@ public class File {
 	 * 构造函数
 	 * @param Pathname 文件路径名
 	 */
-	File(String Pathname) {
+	Files(String Pathname) {
 		//task = new Task();
 		try {
             this.reader = new FileReader(Pathname);
