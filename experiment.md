@@ -1,9 +1,9 @@
-##1.�ж�����
-��дJava��������ӹ�Ԫ1990�굽2007������
-�������ţ�ÿ���������Ż�һ�С��ж������
-��Ϊ����������ǣ�
-��1��������ܱ�4�����������ܱ�100�������������ꣻ
-��2��������ܱ�400����Ҳ�����ꡣ
+## 1.判断闰年
+编写Java程序，输出从公元1990年到2007年所有
+闰年的年号，每输出两个年号换一行。判断年号是
+否为闰年的条件是：
+（1）若年号能被4整除，而不能被100整除，则是闰年；
+（2）若年号能被400整除也是闰年。
 <pre><code>
 public class Years {
 	public static void main(String [] args) {
@@ -20,7 +20,7 @@ public class Years {
 	}
 }
 </pre></code>
-ʵ������
+实验结果：
 1992 1996
 2000 2004
 
@@ -29,22 +29,22 @@ public class Years {
 
 
 atx-style:
-##2.�ٷ��Ƴɼ�ת��Ϊ�ȼ��ɼ�
-ʵ�ַ���ToGradeScore�����ٷ��Ƴɼ�ת��Ϊ�ȼ��ɼ���Ҫ���һ�����ݣ�ʵ������ת����
-�ȼ���ٷ��ƶ���
-�ţ�[90,100]
-����[89,80]
-�У�[79,70]
-����[69,60]
-������[0,59]
+## 2.百分制成绩转化为等级成绩
+实现方法ToGradeScore，将百分制成绩转化为等级成绩。要求对一组数据，实现批量转化。
+等级与百分制对照
+优：[90,100]
+良：[89,80]
+中：[79,70]
+及格：[69,60]
+不及格：[0,59]
 <pre><code>
 
 public class Translation {
 	public static void main(String [] args) {
 	int [] arr = new int []{100,80,50,85,91,61,59,23,69,76};
-	String [] code = new String []{"����","����","��","�ϸ�","���ϸ�"};
-	int [][] array = new int [5][10];       //����±�
-	int [] flag = new int []{0,0,0,0,0};    //���ÿ���ȼ�����Ŀ
+	String [] code = new String []{"优秀","良好","中","合格","不合格"};
+	int [][] array = new int [5][10];       //存放下标
+	int [] flag = new int []{0,0,0,0,0};    //存放每个等级的数目
 	for(int i=0;i<10;i++) { 
 		int k=arr[i]/10;
 		switch(k) {
@@ -86,17 +86,17 @@ public class Translation {
   }
 }
 </pre></code>
-����: 100 91 
-����: 80 85 
-��: 76 
-�ϸ�: 61 69 
-���ϸ�: 50 59 23 
+优秀: 100 91 
+良好: 80 85 
+中: 76 
+合格: 61 69 
+不合格: 50 59 23 
 
 
 atx-style:
-##3.��ӡͼ��
-����forѭ����дһ�����򣬽�����ͼ���ֱ��ӡ��
-���� 
+## 3.打印图案
+利用for循环编写一个程序，将如下图案分别打印输
+出。 
 <pre><code>
     *
   ***
@@ -112,7 +112,7 @@ atx-style:
 		int num=7,k,z=0;
 		char flag='*';
 		for(int i=1;i<=num;i++) {
-			if(i>(num+1)/2) {    //�ж�ÿһ�������* ����
+			if(i>(num+1)/2) {    //判断每一行输入的* 个数
 				k=num+1-i;
 				z=i-(num+1)/2;
 			}
@@ -120,10 +120,10 @@ atx-style:
 				k=i;
 				z=(num+1)/2-i;
 			}	
-			for(int j=1;j<=z;j++) {        //���ÿһ�еĿո�   ��ĿΪz
+			for(int j=1;j<=z;j++) {        //输出每一行的空格   数目为z
 				System.out.print(" ");
 			}
-			for(int j=1;j<=(2*k-1);j++) {    //���ÿһ��*����Ŀ  ��ĿΪ��2*k-1��
+			for(int j=1;j<=(2*k-1);j++) {    //输出每一行*的数目  数目为（2*k-1）
 				System.out.print(flag);
 			}
 			
@@ -132,7 +132,7 @@ atx-style:
 	}
 }		  
   </pre></code>    
-  ʵ������
+  实验结果：
  <pre><code>
    *
   ***
@@ -145,8 +145,8 @@ atx-style:
 
 
   atx-style:
-##4.ˮ�ɻ���
-��д�����ҳ����е�ˮ�ɻ�����ˮ�ɻ�������λ�������ĸ�λ���ֵ������͵��������λ��������
+## 4.水仙花数
+编写程序找出所有的水仙花数；水仙花数是三位数，它的各位数字的立方和等于这个三位数本身。
  <pre><code>
 public class Fower {
 	public static void main(String [] args) {
@@ -161,20 +161,20 @@ public class Fower {
 	}
 }
   </pre></code> 
- ʵ������   
+ 实验结果：   
 153 370 371 407 
   </pre></code>   
   
   atx-style:
-##5.Choc-O-Holic��˾��һ���ɿ�����¯���������ɿ�����ţ���ں���һ�������ɿ���������������ɿ�����¯��ΪChocolateBoiler
-ChocolateBoiler������˽�еĳ�Ա������empty��bolied�������жϹ�¯�Ƿ�Ϊ�գ��Լ���¯�ڻ�����Ƿ�����С�ע��������Ա����ǡ���ĳ�ʼֵ��
+##5.Choc-O-Holic公司有一个巧克力锅炉，用来把巧克力和牛奶融合在一起生产巧克力棒。定义这个巧克力锅炉类为ChocolateBoiler
+ChocolateBoiler有两个私有的成员变量，empty和bolied，用来判断锅炉是否为空，以及锅炉内混合物是否已煮沸。注意两个成员变量恰当的初始值。
 private boolean empty;
 private boolean boiled;
-ChocolateBoiler���������������ƹ�¯�����ɿ�������
-public void fill() {��} ���¯�����ɿ�����ţ�̵Ļ�������Ҫ�жϹ�¯�Ƿ�Ϊ�գ�ֻ�пյĹ�¯��������ɿ�����ţ�̣������̴�ӡһ����伴�ɣ������֮��emptyΪfalse
-public void boil() {��} ��¯����С������жϱ�־λ��ֻ�й�¯�����ģ�����û����������ܽ��иò�������в�����ӡһ����伴�ɣ�����к�boiled��־λ����Ϊtrue��
-public void drain() {��} �ų���е��ɿ�����ţ�̡�����Ҫ���б�־λ�жϣ�ֻ�й�¯�����ģ����ҹ�¯�Ѿ����֮�󣬲����ų������ų������Ķ�����ӡһ����伴�ɣ����ų������֮������emptyΪtrue��
-isEmpty��isBoiled��������ȡempty��boiled��־λ��ֵ
+ChocolateBoiler有三个方法来控制锅炉生产巧克力棒。
+public void fill() {…} 向锅炉填满巧克力和牛奶的混合物。首先要判断锅炉是否为空，只有空的锅炉才能填充巧克力和牛奶（填充过程打印一条语句即可）。填充之后empty为false
+public void boil() {…} 将炉内煮沸。首先判断标志位，只有锅炉是满的，并且没有煮过，才能进行该操作（煮沸操作打印一条语句即可）。煮沸后boiled标志位设置为true。
+public void drain() {…} 排出煮沸的巧克力和牛奶。首先要进行标志位判断，只有锅炉是满的，并且锅炉已经煮沸之后，才能排出混合物（排出混合物的动作打印一条语句即可），排出混合物之后设置empty为true。
+isEmpty和isBoiled方法来获取empty和boiled标志位的值
  <pre><code>
 public class Chocolate {
 	private static Chocolate onlyChocolate;
@@ -193,24 +193,24 @@ public class Chocolate {
 	
 	public void fill() {
 		if(empty) {
-			System.out.println("�������¯�������ɿ�����ţ�̻����");
+			System.out.println("正在向锅炉中添加巧克力和牛奶混合物");
 			empty = false;
 		}
 		else {
-			System.out.println("��¯��������װʧ��");
+			System.out.println("锅炉已满，填装失败");
 		}
 	}
 	
 	public void boil() {
 		if(!empty && !boiled) {
-			System.out.println("���ڽ���¯���");
+			System.out.println("正在将锅炉煮沸");
 			boiled = true;
 		}
 	}
 	
 	public void drain() {
 		if(!empty && boiled) {
-			System.out.println("�����ų���е��ɿ�����ţ�̻����");
+			System.out.println("正在排出煮沸的巧克力和牛奶混合物");
 			boiled = false;
 			empty = true;
 		}
@@ -241,12 +241,12 @@ public class Main {
 	}
 }
   </pre></code> 
- ʵ������   
+ 实验结果：   
 true,false
-�������¯�������ɿ�����ţ�̻����
+正在向锅炉中添加巧克力和牛奶混合物
 false,false
-���ڽ���¯���
+正在将锅炉煮沸
 false,true
-�����ų���е��ɿ�����ţ�̻����
+正在排出煮沸的巧克力和牛奶混合物
 true,false
   </pre></code>  
