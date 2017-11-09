@@ -1,252 +1,133 @@
-##1.�ж�����
-��дJava��������ӹ�Ԫ1990�굽2007������
-�������ţ�ÿ���������Ż�һ�С��ж������
-��Ϊ����������ǣ�
-��1��������ܱ�4�����������ܱ�100�������������ꣻ
-��2��������ܱ�400����Ҳ�����ꡣ
-<pre><code>
-public class Years {
-	public static void main(String [] args) {
-		int num=0;
-		for(int i=1990;i<=2007;i++) {
-			if(i%4==0&&i%100!=0||i%400==0) {
-				System.out.print(i+" ");
-				num++;
-				if(num%2==0) {
-					System.out.println("");
-				}
-			}	
-		}	
-	}
-}
-</pre></code>
-ʵ������
-1992 1996
-2000 2004
-
-
-
-
-
 atx-style:
-##2.�ٷ��Ƴɼ�ת��Ϊ�ȼ��ɼ�
-ʵ�ַ���ToGradeScore�����ٷ��Ƴɼ�ת��Ϊ�ȼ��ɼ���Ҫ���һ�����ݣ�ʵ������ת����
-�ȼ���ٷ��ƶ���
-�ţ�[90,100]
-����[89,80]
-�У�[79,70]
-����[69,60]
-������[0,59]
+###1.模拟实现FCFS（先来先服务）算法
+前置条件：文件中已经有100条数据
+##一个处理队列时
+思路：定义一个Task类（包含全部相关成员变量） ，一个FCFS类，以及FCFS下的FcfsFrist() 函数；把100个Task对象存放在List中，从文件中获取的信息依次存放到对象中，然后计算他们的相关时间，并一次输出。
+截图：原数据        
 <pre><code>
-
-public class Translation {
-	public static void main(String [] args) {
-	int [] arr = new int []{100,80,50,85,91,61,59,23,69,76};
-	String [] code = new String []{"����","����","��","�ϸ�","���ϸ�"};
-	int [][] array = new int [5][10];       //����±�
-	int [] flag = new int []{0,0,0,0,0};    //���ÿ���ȼ�����Ŀ
-	for(int i=0;i<10;i++) { 
-		int k=arr[i]/10;
-		switch(k) {
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:	
-			array[4][flag[4]]=i;
-			flag[4]++;
-			break;
-		case 6:
-			array[3][flag[3]]=i;
-			flag[3]++;
-			break;
-		case 7:
-			array[2][flag[2]]=i;
-			flag[2]++;
-			break;
-		case 8:
-			array[1][flag[1]]=i;
-			flag[1]++;
-			break;
-		case 9:
-		case 10:
-			array[0][flag[0]]=i;
-			flag[0]++;
-			break;
-		}
-	}
-	for(int i=0;i<5;i++) {
-		System.out.print(code[i]+": ");
-		for(int j=0;j<flag[i];j++) {
-			System.out.print(arr[array[i][j]]+" ");
-		}
-		System.out.println("");
-	}
-	
-  }
-}
-</pre></code>
-����: 100 91 
-����: 80 85 
-��: 76 
-�ϸ�: 61 69 
-���ϸ�: 50 59 23 
-
-
+1  0  6
+2  1  3
+3  2  6
+4  3  1
+5  4  2
+6  5  3
+7  6  3
+8  7  3
+9  8  2
+10  9  1
+11  10  1
+12  11  3
+13  12  2
+14  13  3
+15  14  1
+16  15  2
+17  16  6<pre></code>
+<pre><code>
+实验结果：(10条数据)
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+1      0      6       6       6         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+2      6      3       9       8         2.6666666666666665
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+3      9      6       15       13         2.1666666666666665
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+4      15      1       16       13         13.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+5      16      2       18       14         7.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+6      18      3       21       16         5.333333333333333
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+7      21      3       24       18         6.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+8      24      3       27       20         6.666666666666667
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+9      27      2       29       21         10.5
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+10      29      1       30       21         21.0
+<pre></code>
+##两个处理队列时
+思路：两个处理器，一个等待队列，一个处理队列（两个对象《模拟两个处理器》）；通过判断两个处理器当前的任务谁先做完，谁就从等待队列中获取下一个任务；任务做完的出处理队列中移除，下一个任务进入处理队列。
+运行结果：
+<pre><code>
+--任务输出信息先后根据完成时间--
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+2      1      3       4       3         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+1      0      6       6       6         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+4      6      1       7       4         4.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+5      7      2       9       5         2.5
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+3      4      6       10       8         1.3333333333333333
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+6      9      3       12       7         2.3333333333333335
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+7      10      3       13       7         2.3333333333333335
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+8      12      3       15       8         2.6666666666666665
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+9      13      2       15       7         3.5
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+10      15      1       16       7         7.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+11      15      1       16       6         6.0
+<pre></code>
 atx-style:
-##3.��ӡͼ��
-����forѭ����дһ�����򣬽�����ͼ���ֱ��ӡ��
-���� 
+###2.模拟实现SJF（短作业优先）
+前置条件：文件中已经有100条数据
+##一个处理队列时
+思路：思路：一个处理器，一个等待队列；先进行服务时间排序，然后根据FCFS按照调整后的顺序进行处理；
+排序方法：每进行一秒，就有多一个任务进入排序队列；指导所有任务都在排序队列时停止排序（即第100秒的时候）；比如第一个任务6秒的处理时间，在该处理完时，后面就有5个任务在进行任务服务时间长短排序。然后选取服务时间最短的任务接在第一个任务之后处理。
+运行结果：
 <pre><code>
-    *
-  ***
- *****
-*******
- *****
-  ***
-   *
-  </pre></code>    
-  <pre><code>
-   public class Picture {
-	public static void main(String [] args) {
-		int num=7,k,z=0;
-		char flag='*';
-		for(int i=1;i<=num;i++) {
-			if(i>(num+1)/2) {    //�ж�ÿһ�������* ����
-				k=num+1-i;
-				z=i-(num+1)/2;
-			}
-			else {
-				k=i;
-				z=(num+1)/2-i;
-			}	
-			for(int j=1;j<=z;j++) {        //���ÿһ�еĿո�   ��ĿΪz
-				System.out.print(" ");
-			}
-			for(int j=1;j<=(2*k-1);j++) {    //���ÿһ��*����Ŀ  ��ĿΪ��2*k-1��
-				System.out.print(flag);
-			}
-			
-			System.out.println("");
-		}
-	}
-}		  
-  </pre></code>    
-  ʵ������
- <pre><code>
-   *
-  ***
- *****
-*******
- *****
-  ***
-   *
-  </pre></code>    
-
-
-  atx-style:
-##4.ˮ�ɻ���
-��д�����ҳ����е�ˮ�ɻ�����ˮ�ɻ�������λ�������ĸ�λ���ֵ������͵��������λ��������
- <pre><code>
-public class Fower {
-	public static void main(String [] args) {
-		int a,b,c;
-		for(int i=100;i<=999;i++) {
-			a=i/100;
-			b=(i/10)%10;
-			c=(i%100)%10;
-			if(Math.pow(a,3)+Math.pow(b,3)+Math.pow(c,3)==i)
-				System.out.print(i+" ");
-		}		
-	}
-}
-  </pre></code> 
- ʵ������   
-153 370 371 407 
-  </pre></code>   
-  
-  atx-style:
-##5.Choc-O-Holic��˾��һ���ɿ�����¯���������ɿ�����ţ���ں���һ�������ɿ���������������ɿ�����¯��ΪChocolateBoiler
-ChocolateBoiler������˽�еĳ�Ա������empty��bolied�������жϹ�¯�Ƿ�Ϊ�գ��Լ���¯�ڻ�����Ƿ�����С�ע��������Ա����ǡ���ĳ�ʼֵ��
-private boolean empty;
-private boolean boiled;
-ChocolateBoiler���������������ƹ�¯�����ɿ�������
-public void fill() {��} ���¯�����ɿ�����ţ�̵Ļ�������Ҫ�жϹ�¯�Ƿ�Ϊ�գ�ֻ�пյĹ�¯��������ɿ�����ţ�̣������̴�ӡһ����伴�ɣ������֮��emptyΪfalse
-public void boil() {��} ��¯����С������жϱ�־λ��ֻ�й�¯�����ģ�����û����������ܽ��иò�������в�����ӡһ����伴�ɣ�����к�boiled��־λ����Ϊtrue��
-public void drain() {��} �ų���е��ɿ�����ţ�̡�����Ҫ���б�־λ�жϣ�ֻ�й�¯�����ģ����ҹ�¯�Ѿ����֮�󣬲����ų������ų������Ķ�����ӡһ����伴�ɣ����ų������֮������emptyΪtrue��
-isEmpty��isBoiled��������ȡempty��boiled��־λ��ֵ
- <pre><code>
-public class Chocolate {
-	private static Chocolate onlyChocolate;
-	private boolean empty;
-	private boolean boiled;
-	private Chocolate() {
-		empty = true;
-		boiled =false;
-	}
-	public static Chocolate getChocolate() {
-		if(onlyChocolate == null) {
-			onlyChocolate = new Chocolate();
-		}
-		return onlyChocolate;
-	}
-	
-	public void fill() {
-		if(empty) {
-			System.out.println("�������¯�������ɿ�����ţ�̻����");
-			empty = false;
-		}
-		else {
-			System.out.println("��¯��������װʧ��");
-		}
-	}
-	
-	public void boil() {
-		if(!empty && !boiled) {
-			System.out.println("���ڽ���¯���");
-			boiled = true;
-		}
-	}
-	
-	public void drain() {
-		if(!empty && boiled) {
-			System.out.println("�����ų���е��ɿ�����ţ�̻����");
-			boiled = false;
-			empty = true;
-		}
-	}
-	
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return empty;
-	}
-	
-	public boolean isBoiled() {
-		// TODO Auto-generated method stub
-		return boiled;
-	}
-}
-
-public class Main {
-	public static void main(String[] args) {
-		
-		Chocolate a =Chocolate.getChocolate();
-		System.out.println(a.isEmpty()+","+a.isBoiled());
-		a.fill();
-		System.out.println(a.isEmpty()+","+a.isBoiled());
-		a.boil();
-		System.out.println(a.isEmpty()+","+a.isBoiled());
-		a.drain();
-		System.out.println(a.isEmpty()+","+a.isBoiled());
-	}
-}
-  </pre></code> 
- ʵ������   
-true,false
-�������¯�������ɿ�����ţ�̻����
-false,false
-���ڽ���¯���
-false,true
-�����ų���е��ɿ�����ţ�̻����
-true,false
-  </pre></code>  
+--任务输出信息先后根据完成时间--
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+1      0      6       6       6         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+4      6      1       7       4         4.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+5      7      2       9       5         2.5
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+10      9      1       10       1         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+11      10      1       11       1         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+9      11      2       13       5         2.5
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+13      13      2       15       3         1.5
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+15      15      1       16       2         2.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+16      16      2       18       3         1.5
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+18      18      1       19       2         2.0
+<pre></code>
+##一个处理队列时
+思路：思路：两个处理器，一个等待队列，一个处理队列（只含两个对象《模拟两个处理器》）。两个处理器每处理完一次，等待队列进行一次排序，然后选取服务时间最短的任务，处理完的任务从处理队列中删除，把从等待中任务服务时间最短的任务添加到等待队列，循环操作。
+运行结果：
+<pre><code>
+--任务输出信息先后根据完成时间--
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+2      1      3       4       3         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+4      4      1       5       2         2.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+1      0      6       6       6         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+5      5      2       7       3         1.5
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+6      6      3       9       4         1.3333333333333333
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+7      7      3       10       4         1.3333333333333333
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+10      9      1       10       1         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+11      10      1       11       1         1.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+9      10      2       12       4         2.0
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+8      11      3       14       7         2.3333333333333335
+任务ID  开始时间   服务时间    完成时间      周 转 时 间       带权 周转 时间
+13      12      2       14       2         1.0
+<pre></code>
