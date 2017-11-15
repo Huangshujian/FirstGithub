@@ -2,7 +2,7 @@
  * 
  */
 package com.fjnu.math.fiveth;
-
+ 
 import java.io.*;
 import java.util.Scanner;
 public class Main {
