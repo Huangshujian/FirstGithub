@@ -1,4 +1,3 @@
-
 package com.fjnu.math.fiveth;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -54,15 +53,11 @@ public class FileTree {
 		  // 取得代表目录中所有文件的File对象数组
 		  File[] list = file.listFiles();
 		  // 遍历file数组
-		  /**/
-		  
-		  
 		 // AlterTime.format(cal.getTime());
 		  for (int i =0 ; i < list.length; i++) {
 			  cal.setTimeInMillis(list[i].lastModified());
 			  if (list[i].isDirectory()) {
 				  	System.out.println(createPrintStr(list[i].getName(), fileLevel)+AlterTime.format(cal.getTime()));
-				  	
 				  	fileLevel ++;
 				  	// 递归子目录
 				  	readFile(list[i].getPath());
@@ -80,12 +75,4 @@ public class FileTree {
 		  rd.readFile(dirPath);
 	 }
 }
-/***
- * 
- *  File f = new File(path);
- *  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
- *	Calendar cal = Calendar.getInstance();
- *	cal.setTimeInMillis(f.lastModified());
- *	info[0] = sdf.format(cal.getTime());
- */
 
