@@ -13,7 +13,7 @@ public class FileTree {
 	  SimpleDateFormat AlterTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	  Calendar cal = Calendar.getInstance();
 	  private int fileLevel;
-	  /**
+	  /** 
 	  * 生成输出格式
 	  * @param name 输出的文件名或目录名
 	  * @param level 输出的文件名或者目录名所在的层次
