@@ -9,7 +9,7 @@ import java.util.Calendar;
  * @return 
  */
 public class FileTree {
-	// 文件所在的层数
+	// 文件所在的层数1
 	  SimpleDateFormat AlterTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	  Calendar cal = Calendar.getInstance();
 	  private int fileLevel;
