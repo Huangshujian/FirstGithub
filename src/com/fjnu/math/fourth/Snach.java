@@ -26,7 +26,7 @@ public class Snach {
 		list = new ArrayList<Task>();
 		DealList = new LinkedList<Task>();  
 		CurrentTime = 1;
-		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\1.txt");
+		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\input.txt");
 		TimeMessage = new int [100][3];
 		file.ReadFile();  				   //读取文件
 		file.GetTimeMessage(TimeMessage);  //把数据放在TimeMessage里面
@@ -41,7 +41,9 @@ public class Snach {
 		//每进行一秒都得看下谁复合抢占资格
 		int TaskNum=0;
 		DealList.add(list.get(0));
+		TaskNum++;
 		for(;;) {
+			
 			//Collections.sort(list);
 			//if(list.get(TaskNum).s)
 			/*进行排序 找到动态服务时间最小的任务*/
@@ -70,6 +72,7 @@ public class Snach {
 			}
 			CurrentTime++;
 			if(TaskNum<100) {
+				
 				DealList.add(list.get(TaskNum));
 				TaskNum++;
 				//每秒进入等待队列

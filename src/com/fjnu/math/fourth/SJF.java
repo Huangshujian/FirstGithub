@@ -30,7 +30,7 @@ public class SJF {
 		list = new ArrayList<Task>();
 		DealList = new LinkedList<Task>();
 		CurrentTime = 1;
-		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\1.txt");
+		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\input.txt");
 		TimeMessage = new int [100][3];
 		SortTimeMessage = new int [100][3];
 		file.ReadFile();  				   //读取文件
@@ -97,7 +97,7 @@ public class SJF {
 				DealList.remove(0);
 			}
 			if(CurrentTime<100)  {      //表示任务还未全部到达等待队列
-				MinValue = 6;
+				MinValue = 100;
 				MinIndex = i;
 				for(int j=CurrentTime;j>=0;j--) {  //找出动态任务值最小的值 以及下标
 					//把第一个任务的时间
@@ -108,7 +108,7 @@ public class SJF {
 				}//把不等于0的最小值找出来
 			}
 			else {  ////表示任务全部都在等待队列中
-				MinValue = 6;
+				MinValue = 100;
 				MinIndex = i;
 				for(int j=99;j>=0;j--) {  //找出动态任务值最小的值 以及下标
 					//把第一个任务的时间

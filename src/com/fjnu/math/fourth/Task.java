@@ -36,6 +36,10 @@ public class Task {
 	public int GetFlag() {
 		return flag;
 	}
+	/**
+	 * 设置标记，表示改任务处理过
+	 * @param flag
+	 */
 	public void SetFlag(int flag) {
 		this.flag = flag;
 	}

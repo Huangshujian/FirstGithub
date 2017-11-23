@@ -24,7 +24,7 @@ public class FCFS {
 		list = new ArrayList<Task>();
 		DealList = new LinkedList<Task>();  
 		CurrentTime = 1;
-		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\1.txt");
+		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\input.txt");
 		TimeMessage = new int [100][3];
 		file.ReadFile();  				   //读取文件
 		file.GetTimeMessage(TimeMessage);  //把数据放在TimeMessage里面
