@@ -84,7 +84,7 @@ public class Files {
 			String line="";
 	        String[] arrs=null;
 	        while ((line=br.readLine())!=null) {
-	            arrs=line.split("  ");  //每次读取一条并打印出来 以“ ”间隔开
+	            arrs=line.split("	");  //每次读取一条并打印出来 以“ ”间隔开
 	            for(int i=0;i<3;i++) {
 	            	TimeMessage[k][i]=Integer.parseInt(arrs[i]);
 	            }
