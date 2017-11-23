@@ -44,7 +44,7 @@ public class Main {
 }
 </code></pre>
 ##### 实验结果：
-![enter description here][1]
+![] [https://github.com/Huangshujian/FirstGithub/blob/master/src/Image/five_1.png]
 
 ## 获取系统的文件树
 ##### 实验内容：
@@ -133,7 +133,7 @@ public class FileTree {
 }
 </code></pre>
 ##### 实验结果：
-![enter description here][2]
+![][https://github.com/Huangshujian/FirstGithub/blob/master/src/Image/five_2.png]
 
 
   [1]: ./images/1510745086687.jpg "1510745086687.jpg"
