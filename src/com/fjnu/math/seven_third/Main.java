@@ -2,7 +2,7 @@ package com.fjnu.math.seven_third;
 
 public class Main {
 	public static void main(String[] args){
-		
+		 
 		String [] pizzaName = new String [] {"cheersePizza","pepperoniPizza","clamPizza"};
 		Thread [] PizzaThread = new Thread[3]; 
 		

@@ -3,7 +3,7 @@ package com.fjnu.math.seven_third;
 public class ClamPizza extends Pizza{
 	public void prepare(){
 		System.out.println("准备clam披萨的材料");
-	}  
+	}   
 	public void bake(){
 		System.out.println("烘焙clam披萨");
 	}
