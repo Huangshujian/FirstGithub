@@ -2,6 +2,8 @@
 package com.fjnu.math.fourth;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class SJF {
 	int CurrentTime;                        //当前时间
 	private int TimeMessage[][];       		//接收获取的任务时间信息
 	private int SortTimeMessage[][];        //排序后的任务信息
-	
+	List<Task> last;
 	/**
 	 * 构造函数  1.初始化成员变量  
 	 *        2.读取文件中的时间数据并赋值到TimeMessage[]中
@@ -29,6 +31,7 @@ public class SJF {
 		WaitList = new LinkedList<Task>();
 		list = new ArrayList<Task>();
 		DealList = new LinkedList<Task>();
+		last = new ArrayList<Task>();
 		CurrentTime = 1;
 		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\input.txt");
 		TimeMessage = new int [100][3];
@@ -52,16 +55,17 @@ public class SJF {
 		Sort();
 		fcfs.ChangeMessage(SortTimeMessage);
 		fcfs.FcfsFrist();
+		fcfs.show();
 	}
 	/**
 	 * 先存放两个任务到处理队列，没处理完一个任务就删除掉该任务，并重新从队列中找
 	 * 服务时间最短并且还未完成（标记变量flag）的任务,添加到处理队列循环开始的操作
 	 */
 	public void SjfSecond() {
+		last = new ArrayList<Task>();
 		int DnyServTime = 1;//任务的动态服务时间，该初始化为第一个任务的动态服务时间，表示当前情况下还需要服务的时间
 		int flag=0;         //由于最后一个任务无法操作，以此标记作为最后一个处理的任务
 		int MinValue=0,MinIndex=1;
-		
 		DealList.add(list.get(0));
 		list.get(0).SetFlag(0);
 		for(int i=1;i<list.size();i++) { 
@@ -86,6 +90,7 @@ public class SJF {
 				DnyServTime = CurrFronServTime-CurrLastServTime;  
 				taskFront.SetDnyServTime(DnyServTime);  //把动态服务时间传进去
 				taskLast.sumTime(CurrentTime-taskLast.GetServiceTime());
+				last.add(taskLast);
 				DealList.remove(1);
 				flag=1;
 			}
@@ -94,6 +99,7 @@ public class SJF {
 				DnyServTime = CurrLastServTime-CurrFronServTime;
 				taskLast.SetDnyServTime(DnyServTime);
 				taskFront.sumTime(CurrentTime-taskFront.GetServiceTime());
+				last.add(taskFront);
 				DealList.remove(0);
 			}
 			if(CurrentTime<100)  {      //表示任务还未全部到达等待队列
@@ -152,6 +158,20 @@ public class SJF {
 			if(StartTime == WaitList.size()-1)
 				break;
 			StartTime = StartTime + SortTimeMessage[i][2];
+		}
+	}
+	public void show() {
+		Collections.sort(last, new Comparator<Task>(){
+	         @Override
+	         public int compare(Task o1, Task o2) {
+	             if(o1.GetTaskID()>o2.GetTaskID()){
+	                 return 1;
+	             }
+	             return -1;
+	         }
+		});
+		for(int i=0;i<99;i++) {
+			last.get(i).sumTime(last.get(i).GetStartTime());
 		}
 	}
 }

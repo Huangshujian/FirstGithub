@@ -18,6 +18,7 @@ public class Snach {
 	Files file;
 	int CurrentTime;                        //当前时间
 	private int TimeMessage[][];       		//接收获取的任务时间
+	List<Task> last;     
 	/**
 	 * 构造函数
 	 */
@@ -25,6 +26,7 @@ public class Snach {
 		task = new Task();
 		list = new ArrayList<Task>();
 		DealList = new LinkedList<Task>();  
+		last = new ArrayList<Task>();
 		CurrentTime = 1;
 		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\input.txt");
 		TimeMessage = new int [100][3];
@@ -68,6 +70,7 @@ public class Snach {
 			//判断该任务是否做完 DnyServTime==0的时候任务结束
 			if(DealList.get(0).GetDnyServTime()==0) {  //服务时间满
 				DealList.get(0).sumTime(DealList.get(0).GetStartTime());
+				last.add(DealList.get(0));
 				DealList.remove(0); //移除处理队列
 			}
 			CurrentTime++;
@@ -104,5 +107,20 @@ public class Snach {
 					+list.get(i).GetServiceTime());
 		}
 		
+	}
+	 
+	public void show() {
+		Collections.sort(last, new Comparator<Task>(){
+	         @Override
+	         public int compare(Task o1, Task o2) {
+	             if(o1.GetTaskID()>o2.GetTaskID()){
+	                 return 1;
+	             }
+	             return -1;
+	         }
+		});
+		for(int i=0;i<99;i++) {
+			last.get(i).sumTime(last.get(i).GetStartTime());
+		}
 	}
 }

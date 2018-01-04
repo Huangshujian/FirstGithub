@@ -83,7 +83,9 @@ public class Task {
 	public int GetFinshiTime() {
 		return FinishingTime;
 	}
-	
+	public int GetTaskID() {
+		return TaskId;
+	}
 	/**
 	 * 设置四个主要时间值
 	 * @param time
@@ -106,4 +108,6 @@ public class Task {
 		WeightTurnAround=(TurnAroundTime*1.0)/ServiceTime;   //带权周转
 		Show();
 	}
+	
+	
 }

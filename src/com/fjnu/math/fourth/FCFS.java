@@ -2,6 +2,8 @@
 package com.fjnu.math.fourth;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 /**
@@ -14,7 +16,7 @@ public class FCFS {
 	Files file;
 	int CurrentTime;                        //当前时间
 	private int TimeMessage[][];       		//接收获取的任务时间
-	  
+	List<Task> last;
 	/**
 	 * 构造函数  1.初始化成员变量  
 	 *        2.读取文件中的时间数据并赋值到TimeMessage[]中
@@ -22,7 +24,8 @@ public class FCFS {
 	FCFS() {
 		task = new Task();
 		list = new ArrayList<Task>();
-		DealList = new LinkedList<Task>();  
+		DealList = new LinkedList<Task>(); 
+		last = new ArrayList<Task>();
 		CurrentTime = 1;
 		file = new Files("F:\\学习\\大三\\JAVA面向对象程序设计\\practice\\input.txt");
 		TimeMessage = new int [100][3];
@@ -51,13 +54,15 @@ public class FCFS {
 	 * 只有一个处理队列的情况下的先来先服务算法
 	 * StartTime：任务的执行开始时间
 	 */
-	public void FcfsFrist() {	
+	public void FcfsFrist() {
+		last = new ArrayList<Task>();
 		SetTask();
 		int StartTime=0;
 		for(int i=0;i<100;i++) {
 			task = new Task();
 			task = list.get(i);
 			task.sumTime(StartTime);
+			last.add(task);
 			StartTime=StartTime+task.GetServiceTime();
 		}
 	}
@@ -69,7 +74,8 @@ public class FCFS {
 	 *  CurrFronStartTime/CurrLastStartTime:为两个任务当前时间下的服务时间（需要完成的时间）
 	 *  做完一个任务 更新新当前时间
 	 */
-	public void FcfsSecond() {	
+	public void FcfsSecond() {
+		last = new ArrayList<Task>();
 		SetTask();
 		int DnyServTime = 1;
 		int flag=0;
@@ -103,6 +109,7 @@ public class FCFS {
 				DnyServTime = CurrFronServTime-CurrLastServTime;  
 				taskFront.SetDnyServTime(DnyServTime);  //把动态服务时间传进去
 				taskLast.sumTime(CurrentTime-taskLast.GetServiceTime());
+				last.add(taskLast);
 				DealList.remove(1);
 				flag=1;
 			}
@@ -111,6 +118,7 @@ public class FCFS {
 				DnyServTime = CurrLastServTime-CurrFronServTime;
 				taskLast.SetDnyServTime(DnyServTime);
 				taskFront.sumTime(CurrentTime-taskFront.GetServiceTime());
+				last.add(taskFront);
 				DealList.remove(0);
 			}
 			if(i==99) {	
@@ -122,6 +130,20 @@ public class FCFS {
 				}
 			}
 		}
+	} 
+	
+	public void show() {
+		Collections.sort(last, new Comparator<Task>(){
+	         @Override
+	         public int compare(Task o1, Task o2) {
+	             if(o1.GetTaskID()>o2.GetTaskID()){
+	                 return 1;
+	             }
+	             return -1;
+	         }
+		});
+		for(int i=0;i<99;i++) {
+			last.get(i).sumTime(last.get(i).GetStartTime());
+		}
 	}
-
 }

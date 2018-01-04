@@ -30,17 +30,21 @@ public class Main {
 		else if( num==2) {
 			System.out.println("--任务输出信息先后根据完成时间--");
 			Sjf.SjfSecond();
+			Sjf.show();
 		}
 		else if(num==3) {
 			System.out.println("--任务输出信息先后根据完成时间--");
 			FcFs.FcfsFrist();
+			FcFs.show();
 		}
 		else if(num==4) {
 			System.out.println("--任务输出信息先后根据完成时间--");
 			FcFs.FcfsSecond();
+			FcFs.show();
 		}
 		else if(num==5) {
 			snach.SnachM();
+			snach.show();
 		}
 		else if(num==6) {
 			file.WriteFile();

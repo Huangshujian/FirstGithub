@@ -1,4 +1,4 @@
-package com.fjnu.math.third;
+package com.fjnu.math.seven_third;
 
 public abstract class Pizza {
 	public abstract void prepare();
