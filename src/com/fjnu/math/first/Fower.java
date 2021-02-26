@@ -9,6 +9,7 @@ public class Fower {
 			c=(i%100)%10;
 			if(Math.pow(a,3)+Math.pow(b,3)+Math.pow(c,3)==i)
 				System.out.print(i+" ");
-		}		
+		}
+		int d =10;
 	}
 }
