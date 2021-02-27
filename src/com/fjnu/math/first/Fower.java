@@ -3,6 +3,7 @@ package com.fjnu.math.first;
 public class Fower {
 	public static void main(String [] args) {
 		int a,b,c,dd;
+		int aaaa;
 		for(int i=100;i<=999;i++) {
 			a=i/100;
 			b=(i/10)%10;
