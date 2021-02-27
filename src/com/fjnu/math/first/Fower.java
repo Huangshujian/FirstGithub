@@ -11,5 +11,6 @@ public class Fower {
 				System.out.print(i+" ");
 		}
 		int d =10;
+		int aaaa;
 	}
 }
