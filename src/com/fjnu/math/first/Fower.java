@@ -4,6 +4,7 @@ public class Fower {
 	public static void main(String [] args) {
 		int a,b,c,dd;
 		int aaaa;
+		char sds;
 		for(int i=100;i<=999;i++) {
 			a=i/100;
 			b=(i/10)%10;
