@@ -4,8 +4,9 @@ public class Picture {
 	public static void main(String [] args) {
 		int num=7,k,z=0;
 		char flag='*';
+		int aaaa=0;
 		for(int i=1;i<=num;i++) {
-			if(i>(num+1)/2) {    //ÅĞ¶ÏÃ¿Ò»ĞĞÊäÈëµÄ* ¸öÊı
+			if(i>(num+1)/2) {    //åˆ¤æ–­æ¯ä¸€è¡Œè¾“å…¥çš„* ä¸ªæ•°
 				k=num+1-i;
 				z=i-(num+1)/2;
 			}
@@ -13,10 +14,10 @@ public class Picture {
 				k=i;
 				z=(num+1)/2-i;
 			}	
-			for(int j=1;j<=z;j++) {        //Êä³öÃ¿Ò»ĞĞµÄ¿Õ¸ñ   ÊıÄ¿Îªz
+			for(int j=1;j<=z;j++) {        //è¾“å‡ºæ¯ä¸€è¡Œçš„ç©ºæ ¼   æ•°ç›®ä¸ºz
 				System.out.print(" ");
 			}
-			for(int j=1;j<=(2*k-1);j++) {    //Êä³öÃ¿Ò»ĞĞ*µÄÊıÄ¿  ÊıÄ¿Îª£¨2*k-1£©
+			for(int j=1;j<=(2*k-1);j++) {    //è¾“å‡ºæ¯ä¸€è¡Œ*çš„æ•°ç›®  æ•°ç›®ä¸ºï¼ˆ2*k-1ï¼‰
 				System.out.print(flag);
 			}
 			
