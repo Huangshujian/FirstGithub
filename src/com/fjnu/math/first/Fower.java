@@ -2,7 +2,9 @@ package com.fjnu.math.first;
 
 public class Fower {
 	public static void main(String [] args) {
-		int a,b,c;
+		int a,b,c,dd;
+		int aaaa;
+		char sds;
 		for(int i=100;i<=999;i++) {
 			a=i/100;
 			b=(i/10)%10;
@@ -11,6 +13,7 @@ public class Fower {
 				System.out.print(i+" ");
 		}
 		int d =10;
-		int aaaa;
+		int ss =1000;
+
 	}
 }
