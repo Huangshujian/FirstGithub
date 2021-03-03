@@ -3,6 +3,7 @@ package com.fjnu.math.second;
 
 
 public class Chocolate {
+	int a;
 	private static Chocolate onlyChocolate;
 	private boolean empty;
 	private boolean boiled;
@@ -19,24 +20,24 @@ public class Chocolate {
 	
 	public void fill() {
 		if(empty) {
-			System.out.println("ÕıÔÚÏò¹øÂ¯ÖĞÌí¼ÓÇÉ¿ËÁ¦ºÍÅ£ÄÌ»ìºÏÎï");
+			System.out.println("æ­£åœ¨å‘é”…ç‚‰ä¸­æ·»åŠ å·§å…‹åŠ›å’Œç‰›å¥¶æ··åˆç‰©");
 			empty = false;
 		}
 		else {
-			System.out.println("¹øÂ¯ÒÑÂú£¬Ìî×°Ê§°Ü");
+			System.out.println("é”…ç‚‰å·²æ»¡ï¼Œå¡«è£…å¤±è´¥");
 		}
 	}
 	
 	public void boil() {
 		if(!empty && !boiled) {
-			System.out.println("ÕıÔÚ½«¹øÂ¯Öó·Ğ");
+			System.out.println("æ­£åœ¨å°†é”…ç‚‰ç…®æ²¸");
 			boiled = true;
 		}
 	}
 	
 	public void drain() {
 		if(!empty && boiled) {
-			System.out.println("ÕıÔÚÅÅ³öÖó·ĞµÄÇÉ¿ËÁ¦ºÍÅ£ÄÌ»ìºÏÎï");
+			System.out.println("æ­£åœ¨æ’å‡ºç…®æ²¸çš„å·§å…‹åŠ›å’Œç‰›å¥¶æ··åˆç‰©");
 			boiled = false;
 			empty = true;
 		}
