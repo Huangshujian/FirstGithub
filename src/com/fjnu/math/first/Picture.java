@@ -21,7 +21,7 @@ public class Picture {
 				System.out.print(flag);
 			}
 			
-			System.out.println("");
+			System.out.println("666");
 		}
 	}
 }
