@@ -14,6 +14,7 @@ public class Fower {
 		}
 		int d =10;
 		int ss =1000;
+		long aaaa;
 
 	}
 }
