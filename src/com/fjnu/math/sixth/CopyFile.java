@@ -13,33 +13,34 @@ import java.io.IOException;
 
 /**
  * @param
- * @author Ê÷¼ó°¡
+ * @author æ ‘ä¿­å•Š
  */
 public class CopyFile {
 	File First_File;  
+	int aaa;
 	File Second_file;
-	FileOutputStream OutPut;  //Êä³öÁ÷  Êäµ½ÎÄ¼ş
-	FileInputStream InPut;    //ÊäÈëÁ÷  ´ÓÎÄ¼şÖĞ¶ÁÈ¡
+	FileOutputStream OutPut;  //è¾“å‡ºæµ  è¾“åˆ°æ–‡ä»¶
+	FileInputStream InPut;    //è¾“å…¥æµ  ä»æ–‡ä»¶ä¸­è¯»å–
 	FileWriter Writer;
 	FileReader Reader;
 	BufferedWriter BuffWri;
 	BufferedReader BuffRea;
 	CopyFile() {
-		First_File = new File("F:\\Ñ§Ï°\\´óÈı\\JAVAÃæÏò¶ÔÏó³ÌĞòÉè¼Æ\\practice\\src.txt");  
-		Second_file = new File("F:\\Ñ§Ï°\\´óÈı\\JAVAÃæÏò¶ÔÏó³ÌĞòÉè¼Æ\\practice\\dest.txt");
+		First_File = new File("F:\\å­¦ä¹ \\å¤§ä¸‰\\JAVAé¢å‘å¯¹è±¡ç¨‹åºè®¾è®¡\\practice\\src.txt");  
+		Second_file = new File("F:\\å­¦ä¹ \\å¤§ä¸‰\\JAVAé¢å‘å¯¹è±¡ç¨‹åºè®¾è®¡\\practice\\dest.txt");
 		try {
-			OutPut = new FileOutputStream(Second_file);  //Êä³öÁ÷  Êäµ½ÎÄ¼ş
-			InPut = new FileInputStream(First_File);    //ÊäÈëÁ÷  ´ÓÎÄ¼şÖĞ¶ÁÈ¡
+			OutPut = new FileOutputStream(Second_file);  //è¾“å‡ºæµ  è¾“åˆ°æ–‡ä»¶
+			InPut = new FileInputStream(First_File);    //è¾“å…¥æµ  ä»æ–‡ä»¶ä¸­è¯»å–
 		//	BufferedInputStream BuffFinS=new  BufferedInputStream(InPut);
 		//  BufferedOutputStream BuffFoutS=new  BufferedOutputStream(OutPut);
-		    //file---->fileOutputStream----->  BufferedInputStream   »º³å×Ö½ÚÁ÷
-		    //file---->FileWriter      ----->  BufferedWriter        »º³å×Ö·ûÁ÷
+		    //file---->fileOutputStream----->  BufferedInputStream   ç¼“å†²å­—èŠ‚æµ
+		    //file---->FileWriter      ----->  BufferedWriter        ç¼“å†²å­—ç¬¦æµ
 			Writer = new FileWriter(Second_file);
 			Reader = new FileReader(First_File);
 			BuffWri = new  BufferedWriter(Writer);
 			BuffRea = new  BufferedReader(Reader);	
 		} catch (FileNotFoundException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 			e.printStackTrace();
 		} catch (IOException e) {  
             System.err.println("FileStreamsTest: " + e);
@@ -47,7 +48,7 @@ public class CopyFile {
 	}
 	
 	/**
-	 * ´Ó¸³ÖµÔ´ÎÄ¼şĞÅÏ¢µ½µ±Ç°ÎÄ¼ş£¬Ã»ÓĞBuff»º´æÇøÇé¿öÏÂÏµÍ³µÄºÄÊ±Ê±¼ä
+	 * ä»èµ‹å€¼æºæ–‡ä»¶ä¿¡æ¯åˆ°å½“å‰æ–‡ä»¶ï¼Œæ²¡æœ‰Buffç¼“å­˜åŒºæƒ…å†µä¸‹ç³»ç»Ÿçš„è€—æ—¶æ—¶é—´
 	 */
 	public void CopyWithoutBuff() {
 		try{
@@ -58,7 +59,7 @@ public class CopyFile {
 			}
 			long endTime = System.currentTimeMillis();
 			long Time=endTime-starTime;
-			System.out.println("Ã»ÓĞ»º³åÇøµÄÇé¿öÏÂ£º"+Time);
+			System.out.println("æ²¡æœ‰ç¼“å†²åŒºçš„æƒ…å†µä¸‹ï¼š"+Time);
 			OutPut.close();
 			InPut.close();
 		}catch (IOException e) {  
@@ -67,19 +68,19 @@ public class CopyFile {
 	}
 	
 	/**
-	 * ´Ó¸³ÖµÔ´ÎÄ¼şĞÅÏ¢µ½µ±Ç°ÎÄ¼ş£¬ÓĞBuff»º´æÇøÇé¿öÏÂÏµÍ³µÄºÄÊ±Ê±¼ä
+	 * ä»èµ‹å€¼æºæ–‡ä»¶ä¿¡æ¯åˆ°å½“å‰æ–‡ä»¶ï¼Œæœ‰Buffç¼“å­˜åŒºæƒ…å†µä¸‹ç³»ç»Ÿçš„è€—æ—¶æ—¶é—´
 	 */
 	public void CopyWithBuff() {
-		try{		//ÓĞ»º³åÇø
+		try{		//æœ‰ç¼“å†²åŒº
 			String s = null;
 			long starTime =System.currentTimeMillis();
 			while((s=BuffRea.readLine())!=null) {
-				BuffWri.write(s+"\r\n"+"»º³åÇø");
+				BuffWri.write(s+"\r\n"+"ç¼“å†²åŒº");
 				System.out.println(s);
 			}
 			long endTime = System.currentTimeMillis();
 			long Time=endTime-starTime;
-			System.out.println("ÓĞ»º³åÇøµÄÇé¿öÏÂ£º"+Time);
+			System.out.println("æœ‰ç¼“å†²åŒºçš„æƒ…å†µä¸‹ï¼š"+Time);
 			BuffWri.close();
 			BuffRea.close();
 			Writer.close();
